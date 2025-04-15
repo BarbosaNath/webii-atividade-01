@@ -1,8 +1,6 @@
 import express, { Request, Response, Application } from 'express'
+import { IncomingMessage, ServerResponse } from 'http'
 const app: Application = express()
-
-require('dotenv').config()
-const port = process.env.PORT;
 
 interface User {
   name: string;
@@ -37,6 +35,6 @@ app.get('/usuario/:cidade', (req: Request, res: Response) => {
   );
 })
 
-
-console.log(`Server starting on port ${port}`)
-app.listen(port)
+export default (req: IncomingMessage, res: ServerResponse) => {
+  app(req, res);
+}
