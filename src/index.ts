@@ -29,7 +29,7 @@ app.get('/usuario/sorteado', (_req: Request, res: Response) => {
   res.json(users[randomIndex]);
 })
 
-app.get('/usuario/:cidade', (req: Request, res: Response) => {
+app.get('/usuario/cidade/:cidade', (req: Request, res: Response) => {
   res.json(
     users.filter((user) => user.city === req.params.cidade)
   );
